@@ -6,6 +6,7 @@ Use Apple's undocuments class to recreating the confetti：
 
 
 
-<video src="/Users/wildcat/Root/Repositories/github/CAEmitterBehaviorDemo/image/5.mp4"></video>
+<video src="https://github.com/Lves/CAEmitterBehaviorDemo/blob/master/image/1.mp4"></video>
 
-<video src="/Users/wildcat/Root/Repositories/github/CAEmitterBehaviorDemo/image/1.mp4"></video>
+
+<video src="https://github.com/Lves/CAEmitterBehaviorDemo/blob/master/image/5.mp4"></video>
