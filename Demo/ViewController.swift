@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Demo
 //
-//  Created by LvesLi on 2019/11/27.
+//  Created by 乐哥 on 2019/11/27.
 //  Copyright © 2019 乐Coding. All rights reserved.
 //
 
@@ -38,6 +38,9 @@ class ViewController: UIViewController {
         emitterLayer.emitterSize = CGSize(width: 100, height: 100)
         emitterLayer.emitterShape = .sphere
         emitterLayer.frame = view.bounds
+        //6.p
+        emitterLayer.birthRate = 0
+       
 
         emitterLayer.beginTime = CACurrentMediaTime()
         return emitterLayer
@@ -56,9 +59,11 @@ class ViewController: UIViewController {
             cell.spinRange = 8
 //            cell.velocityRange = 100
 //            cell.yAcceleration = 150
-            //5.0
+            //5.
             cell.velocityRange = 0
             cell.yAcceleration = 0
+            //6.
+            cell.birthRate = 100
             
             cell.setValue("plane", forKey: "particleType")
             cell.setValue(Double.pi, forKey: "orientationRange")
@@ -69,14 +74,11 @@ class ViewController: UIViewController {
         }
     }()
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.layer.addSublayer(confettiLayer)
-//    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         view.layer.addSublayer(confettiLayer)
-        addBehaviors() // new!
+        addBehaviors()
+        addAnimations() // new!
     }
     // 4.
     func addBehaviors() {
@@ -135,5 +137,17 @@ class ViewController: UIViewController {
 
         layer.add(animation, forKey: "emitterBehaviors.attractor.stiffness")
     }
+    
+    func addBirthrateAnimation(to layer: CALayer) {
+        let animation = CABasicAnimation()
+        animation.duration = 1
+        animation.fromValue = 1
+        animation.toValue = 0
 
+        layer.add(animation, forKey: "birthRate")
+    }
+    func addAnimations() {
+        addAttractorAnimation(to: confettiLayer)
+        addBirthrateAnimation(to: confettiLayer)
+    }
 }
